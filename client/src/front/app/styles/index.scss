@@ -1,0 +1,11 @@
+@import "variables/global";
+@import 'reset';
+@import "themes/light";
+@import "themes/dark";
+
+.app {
+  font-size: var(--font-m);
+
+  background: var(--bg-color);
+  color: var(--primary-color);
+}
