@@ -24,6 +24,6 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "build"
+    "outDir": "dist"
   }
 }
