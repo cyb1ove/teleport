@@ -21,6 +21,7 @@ export const LoginPage = (props: ILoginPageProps) => {
       name='login'
       onSubmit={handleSubmit}
     >
+      Test
       <input type='text' name='phoneNumber' />
       {props.loginStage === 'code' && <input type='text' name='phoneCode' />}
       <button type='submit'>Send</button>

@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite serve",
+    "start": "vite serve",
     "build": "tsc -b && vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview"
