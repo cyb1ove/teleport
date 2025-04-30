@@ -1,3 +1,8 @@
+
+// chrome.runtime.onStartup.addListener(() => {
+
+// })
+
 chrome.runtime.onMessage.addListener(
   (request: { message: string; }, _: any, sendResponse: (arg0: { location?: any; message?: string; }) => void) => {
     if (request.message === 'getLocation') {
