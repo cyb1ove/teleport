@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 
 import react from '@vitejs/plugin-react'
-// import path from 'path'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import webExtension from 'vite-plugin-web-extension'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
@@ -14,21 +14,13 @@ export default defineConfig({
       manifest: 'src/manifest.json',
       watchFilePaths: ['src/**/*']
     }),
+    nodePolyfills({
+      protocolImports: true,
+    }),
   ],
-  // resolve: {
-  //   alias: {
-  //     os: 'os-browserify', // Alias for the os polyfill
-  //     buffer: 'buffer', // Alias for the buffer polyfill
-  //     crypto: 'crypto-browserify', // Alias for the crypto polyfill
-  //     stream: 'stream-browserify', // Alias for the stream polyfill
-  //     util: 'util',        // Alias for the util polyfill
-  //     process: 'process/browser', // Alias for the process polyfill
-  //   },
-  // },
-  // define: {
-  //   global: {},
-  //   'process.env': {},
-  // },
+  optimizeDeps: {
+    include: ['buffer', 'process'],
+  },
   publicDir: 'public',
   build: {
     emptyOutDir: true,

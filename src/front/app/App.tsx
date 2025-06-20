@@ -24,7 +24,14 @@ export const App = () => {
     const { StringSession } = await import('telegram/sessions');
 
     const SESSION = new StringSession("");
-    const client = new TelegramClient(SESSION, API_ID, API_HASH, { connectionRetries: 5 }) // Immediately create a client using your application data
+    const client = new TelegramClient(SESSION, Number(API_ID), API_HASH, {
+      connectionRetries: 5,
+      requestRetries: 5,
+      autoReconnect: true,
+      retryDelay: 3000,
+      useWSS: true,
+      testServers: false,
+    })
 
     if (loginStage === 'name') {
       await client.connect();
