@@ -24,4 +24,9 @@ dist-ssr
 *.sw?
 *.tsconfig.tsbuildinfo
 
+# Environment variables
 .env
+
+# Cloned gramjs repository and its bundle
+telegram_tmp
+public/telegram.js
