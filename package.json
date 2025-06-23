@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "install": "bash preinstall.sh && npm install --ignore-scripts",
     "start": "vite serve",
     "build": "tsc -b && vite build --watch",
     "lint": "eslint .",
