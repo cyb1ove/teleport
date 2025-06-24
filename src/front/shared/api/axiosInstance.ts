@@ -27,11 +27,11 @@ class CustomAxiosInstance {
     }
   }
 
-  get<T = any>(endPoint: string, config?: AxiosRequestConfig): Promise<T> {
+  get<T = never>(endPoint: string, config?: AxiosRequestConfig): Promise<T> {
     return this.getRequestData<T>(() => this.instance.get(endPoint, config))
   }
 
-  post<T = any>(endPoint: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+  post<T = never>(endPoint: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
     return this.getRequestData(() => this.instance.post(endPoint, data, config));
   }
 }
