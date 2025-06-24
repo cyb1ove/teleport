@@ -5,13 +5,13 @@ set -e
 
 # Check if git is available
 if ! command -v git &> /dev/null; then
-    print_error "Git is not installed or not in PATH"
+    echo "Git is not installed or not in PATH"
     exit 1
 fi
 
 # Check if npm is available
 if ! command -v npm &> /dev/null; then
-    print_error "npm is not installed or not in PATH"
+    echo "npm is not installed or not in PATH"
     exit 1
 fi
 
