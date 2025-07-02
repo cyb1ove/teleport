@@ -7,7 +7,13 @@
   </head>
   <body>
     <div id="root"></div>
-    <script src="telegram.js"></script>
+    <script>
+      window.telegramLoaded = false;
+      window.telegramLoadPromise = new Promise((resolve) => {
+        window.telegramLoadResolve = resolve;
+      });
+    </script>
+    <script src="telegram.js" onload="window.telegramLoaded = true; window.telegramLoadResolve();"></script>
     <script type="module" src="./../src/front/index.tsx"></script>
   </body>
 </html>

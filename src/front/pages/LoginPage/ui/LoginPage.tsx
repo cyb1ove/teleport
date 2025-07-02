@@ -1,5 +1,5 @@
 import { FormEventHandler } from 'react';
-import { AuthData } from 'shared/api/auth/types';
+import { AuthData } from 'shared/login/login.types';
 
 interface ILoginPageProps {
   handleSubmit: (data: AuthData) => void;

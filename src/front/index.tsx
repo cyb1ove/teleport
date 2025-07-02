@@ -9,18 +9,16 @@ declare global {
 }
 
 import { createRoot } from 'react-dom/client';
-import { App } from 'app/App';
-import { HashRouter } from 'react-router-dom';
-
-// Expose telegram to console for testing
-console.log('Telegram client loaded:', window.telegram);
+import { App } from 'app/app';
+import { Providers } from 'app/providers';
+// import { HashRouter } from 'react-router-dom';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
 
 root.render(
-  <HashRouter>
+  <Providers>
     <App />
-  </HashRouter>
+  </Providers>
 );
 
