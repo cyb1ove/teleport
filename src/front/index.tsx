@@ -4,7 +4,7 @@
 // Add type definition for the global telegram object
 declare global {
   interface Window {
-    telegram: any;
+    telegram: typeof import('telegram');
   }
 }
 
