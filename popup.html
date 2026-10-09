@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <title>Teleport</title>
+    <style>
+      body { font: 13px/1.4 system-ui, sans-serif; width: 340px; margin: 12px; color: #222; }
+      h1 { font-size: 15px; margin: 0 0 12px; }
+      fieldset { border: 1px solid #ddd; border-radius: 6px; margin: 0 0 12px; padding: 8px 10px 10px; }
+      legend { padding: 0 4px; color: #666; }
+      label { display: block; margin: 6px 0 2px; }
+      input { box-sizing: border-box; width: 100%; padding: 5px 6px; }
+      button { margin-top: 8px; padding: 5px 10px; }
+      [hidden] { display: none !important; }
+      #status { white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: 12px; color: #444; }
+      .hint { color: #777; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>Teleport</h1>
+
+    <form id="credentials" hidden>
+      <fieldset>
+        <legend>Ключі API (my.telegram.org)</legend>
+        <label for="apiId">api_id</label>
+        <input id="apiId" inputmode="numeric" autocomplete="off" />
+        <label for="apiHash">api_hash</label>
+        <input id="apiHash" autocomplete="off" />
+        <button type="submit">Підключитися</button>
+      </fieldset>
+    </form>
+
+    <form id="login" hidden>
+      <fieldset>
+        <legend>Вхід у Telegram</legend>
+        <label id="loginLabel" for="loginInput"></label>
+        <input id="loginInput" autocomplete="off" />
+        <button type="submit">Далі</button>
+        <button type="button" id="loginResend">Надіслати інакше</button>
+        <button type="button" id="loginReset">Інший номер</button>
+        <button type="button" id="loginQr">Увійти через QR-код</button>
+        <p class="hint">Попап можна закрити, щоб подивитися код: крок вводу збережеться.</p>
+      </fieldset>
+    </form>
+
+    <fieldset id="qr" hidden>
+      <legend>Вхід через QR-код</legend>
+      <canvas id="qrCanvas"></canvas>
+      <p class="hint">На телефоні: Telegram → Налаштування → Пристрої → «Підключити пристрій», і відскануйте код. Не закривайте попап, поки скануєте.</p>
+      <button type="button" id="qrCancel">Скасувати</button>
+    </fieldset>
+
+    <fieldset id="fetch" hidden>
+      <legend>Канал із поточної вкладки</legend>
+      <label for="limit">Скільки повідомлень (0 = вся історія)</label>
+      <input id="limit" type="number" min="0" value="50" />
+      <button id="load">Завантажити</button>
+      <button id="logout">Вийти</button>
+      <p class="hint">Повідомлення виводяться в консоль вкладки (F12). Не клікайте поза попапом, поки йде завантаження: він закриється й зупинить його.</p>
+    </fieldset>
+
+    <div id="status"></div>
+
+    <script type="module" src="/src/popup.js"></script>
+  </body>
+</html>

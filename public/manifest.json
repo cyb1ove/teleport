@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Teleport",
+  "version": "0.1.0",
+  "description": "Reads Telegram channel history for the link in the current tab.",
+  "action": {
+    "default_title": "Teleport",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://t.me/*",
+    "https://telegram.me/*",
+    "https://web.telegram.org/*"
+  ]
+}
